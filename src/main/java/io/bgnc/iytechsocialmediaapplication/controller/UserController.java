@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -28,9 +29,15 @@ public class UserController {
        if(userList.contains(user)){
            throw new UserExistAlreadyException("User is already in the system");
        }
-       else{
+       else
+       {
             return userService.saveUser(userParam);
        }
+    }
+    @DeleteMapping("/deleteUser?{id}")
+    public User deleteUserById(@PathVariable Long id){
+
+
     }
 
 
