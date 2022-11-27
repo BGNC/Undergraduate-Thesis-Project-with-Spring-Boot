@@ -8,9 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/user")
 @NoArgsConstructor
@@ -22,21 +19,17 @@ public class UserController {
 
     @PostMapping("/saveUser")
     public User saveUser(@RequestParam User userParam) throws UserExistAlreadyException {
-
-       User user = userService.getUser(userParam.getUsername());
-       List<User> userList = userService.getAllUser();
-
-       if(userList.contains(user)){
-           throw new UserExistAlreadyException("User is already in the system");
-       }
-       else
-       {
-            return userService.saveUser(userParam);
-       }
+        return userService.saveUser(userParam);
     }
-    @DeleteMapping("/deleteUser?{id}")
-    public User deleteUserById(@PathVariable Long id){
 
+    @PutMapping("/{id}")
+    public User updateUserById(@PathVariable Long id, @RequestParam String username,@RequestParam String phone,@RequestParam String password){
+        return userService.updateUserById(id,username,phone,password);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUserById(@PathVariable Long id){
+        userService.deleteUserById(id);
 
     }
 

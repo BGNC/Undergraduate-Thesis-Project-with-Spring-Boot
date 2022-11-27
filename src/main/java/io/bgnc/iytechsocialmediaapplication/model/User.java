@@ -2,12 +2,11 @@ package io.bgnc.iytechsocialmediaapplication.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 
 @Entity
@@ -21,6 +20,7 @@ public class User {
     private String student_no;
     private String username;
     private String name;
+    private String surname;
     private String mail;
     private String password;
     private String phone;
