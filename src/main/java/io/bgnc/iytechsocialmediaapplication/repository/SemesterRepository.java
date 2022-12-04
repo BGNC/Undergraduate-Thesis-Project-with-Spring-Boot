@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface SemesterRepository extends JpaRepository<Semester,Long> {
 
     Semester findBySemesterName(String semester_name);
+    Semester findBySemesterId(Long id);
+
 
 }

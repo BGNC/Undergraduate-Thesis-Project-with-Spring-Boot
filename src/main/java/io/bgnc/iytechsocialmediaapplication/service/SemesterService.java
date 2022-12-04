@@ -33,6 +33,18 @@ public class SemesterService {
         return semesterRepository.save(semester);
     }
 
+    public Semester updateSemester(Long id,String semesterName) throws IllegalAccessException {
+
+        Semester semester = semesterRepository.findBySemesterId(id);
+        List<Semester> semesterList = getAllSemesters();
+        if(semesterList.contains(semester)){
+            semester.setSemester_name(semesterName);
+        }
+        else{
+            throw new IllegalAccessException("there is no semester ");
+        }
+        return semesterRepository.save(semester);
+    }
 
 
     public void deleteSemesterById(Long id) {

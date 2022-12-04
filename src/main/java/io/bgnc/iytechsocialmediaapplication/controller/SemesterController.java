@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/semester")
-
 @Slf4j
 public class SemesterController {
 
@@ -30,6 +29,11 @@ public class SemesterController {
     @PostMapping("/saveSemester")
     public Semester saveSemester(@RequestBody Semester semester){
         return semesterService.saveSemester(semester);
+    }
+
+    @PutMapping("{id}")
+    public Semester updateSemester(@PathVariable Long id,String semesterName) throws IllegalAccessException {
+        return semesterService.updateSemester(id,semesterName);
     }
 
     @DeleteMapping("{id}")

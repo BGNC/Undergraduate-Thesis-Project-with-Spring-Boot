@@ -20,17 +20,20 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
 
-    @GetMapping("")
+
     public Departments getDepartmentsByName(@RequestBody String dept_name){
 
         return departmentService.getDepartmentsByName(dept_name);
     }
 
-    public Departments getDepartmentsByFaculty(Faculty faculty){
+    @GetMapping("/faculty")
+    public Departments getDepartmentsByFaculty(@RequestBody Faculty faculty){
 
         return departmentService.getDepartmentsByFaculty(faculty);
 
     }
+
+    @GetMapping("")
     public List<Departments> getAllDepartments(){
 
         return departmentService.getAllDepartments();
