@@ -23,6 +23,17 @@ public class SemesterService {
         return semesterRepository.findAll();
     }
 
+    public Semester saveSemester(Semester semester){
+
+        List<Semester> semesters = getAllSemesters();
+
+        if(semesters.contains(semester)){
+            throw new ArrayIndexOutOfBoundsException("The semester is already in database so we cannot put ");
+        }
+        return semesterRepository.save(semester);
+    }
+
+
 
     public void deleteSemesterById(Long id) {
         semesterRepository.deleteById(id);

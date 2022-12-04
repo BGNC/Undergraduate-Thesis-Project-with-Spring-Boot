@@ -22,9 +22,14 @@ public class SemesterController {
     }
 
 
-    @GetMapping("")
+    @GetMapping("/getAllSemester")
     public List<Semester> getAllSemesters(){
         return semesterService.getAllSemesters();
+    }
+
+    @PostMapping("/saveSemester")
+    public Semester saveSemester(@RequestBody Semester semester){
+        return semesterService.saveSemester(semester);
     }
 
     @DeleteMapping("{id}")
