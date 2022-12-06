@@ -1,7 +1,6 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
 import io.bgnc.iytechsocialmediaapplication.repository.PostRepository;
-import io.bgnc.iytechsocialmediaapplication.response.PostResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,5 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.response.PostResponse;
 import io.bgnc.iytechsocialmediaapplication.service.PostService;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

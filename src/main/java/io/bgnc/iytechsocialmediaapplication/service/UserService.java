@@ -4,22 +4,26 @@ import io.bgnc.iytechsocialmediaapplication.exception.UserExistAlreadyException;
 import io.bgnc.iytechsocialmediaapplication.model.User;
 import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 
 @Service
 @Slf4j
-public class UserService implements UserDetailsService {
+@Transactional
+public class UserService{
 
     private final UserRepository userRepository;
 
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
     public User saveUser(User userParam) throws UserExistAlreadyException {
@@ -45,32 +49,29 @@ public class UserService implements UserDetailsService {
                         user.setUsername(username);
                         user.setPhone(phone);
                         user.setPassword(password);
-
-
+                    }
+                    else
+                    {
+                        log.info("Password is null");
                     }
                 }
+                else{
+                    log.info("Please enter, phone");
+                }
+            }
+            else
+            {
+                log.info("The username is already taken");
             }
         }
 
         return userRepository.save(user);
     }
 
-
-
-
-
-
-
-
-
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
 
 
 }

@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 @NoArgsConstructor
@@ -17,6 +19,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
+    }
     @PostMapping("/saveUser")
     public User saveUser(@RequestParam User userParam) throws UserExistAlreadyException {
         return userService.saveUser(userParam);
