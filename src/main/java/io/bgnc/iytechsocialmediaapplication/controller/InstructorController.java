@@ -1,11 +1,13 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
+import io.bgnc.iytechsocialmediaapplication.model.Instructor;
 import io.bgnc.iytechsocialmediaapplication.service.InstructorService;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/instructor")
@@ -14,6 +16,26 @@ public class InstructorController {
 
     @Autowired
     private  InstructorService instructorService;
+
+
+    @GetMapping("")
+    public List<Instructor> getAllInstructor(){
+        return instructorService.getAllInstructor();
+
+    }
+    @PutMapping("/updateInstructor")
+    public Instructor updateInstructor(@RequestBody Instructor instructor){
+        return instructorService.updateInstructor(instructor);
+
+    }
+    @PostMapping(value = "/addInstructor",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public Instructor addInstructor(@RequestBody Instructor instructor){
+        return instructorService.addInstructor(instructor);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteInstructorById(@PathVariable Long id){
+        instructorService.deleteInstructorById(id);
+    }
 
 
 
