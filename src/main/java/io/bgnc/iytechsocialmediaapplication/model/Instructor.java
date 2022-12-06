@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 @Data
@@ -18,7 +19,8 @@ public class Instructor {
     private String instructor_title;
 
     private String instructor_name;
-    private String instructor_photo;
+    @Lob
+    private byte[] instructor_photo;
     private String instructor_address;
     private String instructor_mail;
     private String instructor_phone;
