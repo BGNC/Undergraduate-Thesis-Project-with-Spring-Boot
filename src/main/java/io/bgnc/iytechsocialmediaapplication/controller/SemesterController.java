@@ -21,7 +21,7 @@ public class SemesterController {
     }
 
 
-    @GetMapping("/getAllSemester")
+    @GetMapping("/")
     public List<Semester> getAllSemesters(){
         return semesterService.getAllSemesters();
     }
@@ -31,12 +31,12 @@ public class SemesterController {
         return semesterService.saveSemester(semester);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("updateSemester/{id}")
     public Semester updateSemester(@PathVariable Long id,String semesterName) throws IllegalAccessException {
         return semesterService.updateSemester(id,semesterName);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("deleteSemester/{id}")
     public void deleteSemesterById(@PathVariable Long id){
         semesterService.deleteSemesterById(id);
     }

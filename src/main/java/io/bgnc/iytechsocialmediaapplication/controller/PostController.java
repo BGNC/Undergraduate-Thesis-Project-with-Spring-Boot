@@ -22,7 +22,7 @@ public class PostController {
     private PostService postService;
 
 
-    @GetMapping
+   @GetMapping
     public List<PostResponse> getAllPost(@RequestParam Optional<Long> userId){
 
         return postService.getAllPost(userId);
