@@ -18,9 +18,15 @@ public class DepartmentController {
 
 
 
+    @GetMapping("/getDepartmentByName")
     public Departments getDepartmentsByName(@RequestBody String dept_name){
 
         return departmentService.getDepartmentsByName(dept_name);
+    }
+
+    @PostMapping("/saveDepartment")
+    public Departments saveDepartment(@RequestBody Departments departments){
+        return departmentService.saveDepartment(departments);
     }
 
     @GetMapping("/faculty")

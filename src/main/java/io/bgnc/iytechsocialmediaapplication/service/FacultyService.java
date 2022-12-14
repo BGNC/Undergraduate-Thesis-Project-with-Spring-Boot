@@ -1,6 +1,8 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
+import io.bgnc.iytechsocialmediaapplication.model.Departments;
 import io.bgnc.iytechsocialmediaapplication.model.Faculty;
+import io.bgnc.iytechsocialmediaapplication.repository.DepartmentRepository;
 import io.bgnc.iytechsocialmediaapplication.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ public class FacultyService {
 
     @Autowired
     private FacultyRepository facultyRepository;
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     public List<Faculty> getAllFaculties() {
         return facultyRepository.findAll();
@@ -29,8 +33,16 @@ public class FacultyService {
 
     public void deleteFaculty(Long id){
 
-        if(facultyRepository.existsById(id))
+        if(facultyRepository.existsById(id)) {
+
             facultyRepository.deleteById(id);
+            for(int i = 0 ; i < departmentRepository.findAll().size();i++){
+                if(departmentRepository.existsById(id)){
+                    departmentRepository.deleteById(id);
+                }
+            }
+        }
+
     }
     public Faculty updateFaculty(String faculty_name) throws IllegalAccessException {
         Faculty faculty = facultyRepository.findByName(faculty_name);

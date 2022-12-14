@@ -16,7 +16,6 @@ public class Departments {
     @Id
     private Long dept_id;
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "faculties_id")
     private Faculty faculties_id;
     private String dept_name;
     private String dept_shortname;
