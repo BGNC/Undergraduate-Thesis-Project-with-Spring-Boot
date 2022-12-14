@@ -27,6 +27,12 @@ public class DepartmentService {
         return departmentRepository.findByFacultyId(facultyRepository.findById(faculty.getFaculties_id()));
     }
 
+    public void deleteDepartment(Long dept_id){
+        if(departmentRepository.existsById(dept_id))
+            departmentRepository.deleteById(dept_id);
+
+    }
+
     public List<Departments> getAllDepartments(){
         return departmentRepository.findAll();
     }

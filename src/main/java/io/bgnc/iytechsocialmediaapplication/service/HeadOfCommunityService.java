@@ -24,7 +24,8 @@ public class HeadOfCommunityService {
 
     public void deleteHeadOfCommunityById(Long id){
 
-        headOfCommunityRepository.deleteById(id);
+        if(headOfCommunityRepository.existsById(id))
+            headOfCommunityRepository.deleteById(id);
     }
     public HeadOfCommunity saveHeadOfCommunity(HeadOfCommunity headOfCommunity) throws Exception {
 

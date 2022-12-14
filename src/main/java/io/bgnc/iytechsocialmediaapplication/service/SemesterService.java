@@ -48,6 +48,13 @@ public class SemesterService {
 
 
     public void deleteSemesterById(Long id) {
-        semesterRepository.deleteById(id);
+        if(semesterRepository.existsById(id)){
+            semesterRepository.deleteById(id);
+        }
+        else
+        {
+            throw new IllegalStateException();
+        }
+
     }
 }

@@ -53,8 +53,12 @@ public class InstructorService {
     }
     public void deleteInstructorById(Long id){
 
-        instructorRepository.deleteById(id);
-        log.info("The instructor who has {} is deleted",id);
+        if(instructorRepository.existsById(id)){
+            instructorRepository.deleteById(id);
+        }
+
+
+
     }
 
     public Instructor findByMail(String instructorMail) {

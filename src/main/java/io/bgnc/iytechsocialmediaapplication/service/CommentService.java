@@ -1,5 +1,6 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
+import io.bgnc.iytechsocialmediaapplication.repository.CommentRepository;
 import io.bgnc.iytechsocialmediaapplication.repository.PostRepository;
 import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,5 +13,15 @@ public class CommentService {
     private UserRepository userRepository;
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private CommentRepository commentRepository;
+
+
+
+    public void deleteComment(Long comment_id){
+        if(commentRepository.existsById(comment_id))
+            commentRepository.deleteById(comment_id);
+
+    }
 
 }

@@ -4,10 +4,7 @@ import io.bgnc.iytechsocialmediaapplication.model.Departments;
 import io.bgnc.iytechsocialmediaapplication.model.Faculty;
 import io.bgnc.iytechsocialmediaapplication.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +28,10 @@ public class DepartmentController {
 
         return departmentService.getDepartmentsByFaculty(faculty);
 
+    }
+    @DeleteMapping("/deleteDepartment/{dept_id}")
+    public void deleteDepartment(@PathVariable Long dept_id){
+        departmentService.deleteDepartment(dept_id);
     }
 
     @GetMapping("")

@@ -66,9 +66,8 @@ public class PostService {
 
     public void deletePost(Long postId)
     {
-        List<Post> getAllPost = getAllPost();
-        Post flag = postRepository.findById(postId).get();
-        if(getAllPost.contains(flag)){
+
+        if(postRepository.existsById(postId)){
             postRepository.deleteById(postId);
         }
         else{

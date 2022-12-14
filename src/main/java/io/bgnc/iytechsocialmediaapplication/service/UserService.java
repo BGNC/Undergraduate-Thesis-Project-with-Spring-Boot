@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -37,18 +38,21 @@ public class UserService{
     }
 
 
-    public User updateUserById(Long id, String username, String phone, String password) {
+    public User updateUserById(Long id, String username, String phone, String password,int isActivated) {
         User user = userRepository.findById(id).get();
         List<User> userList = userRepository.findAll();
         if(userList.contains(user)){
+
             if(!(username.isEmpty()) && !(user.getUsername().equals(username)))
             {
                 if(!(phone.isEmpty() && !(user.getPhone().equals(phone)))){
                     if(!(password.isEmpty()))
                     {
+                        user.setIs_activate(isActivated);
                         user.setUsername(username);
                         user.setPhone(phone);
                         user.setPassword(password);
+
                     }
                     else
                     {
@@ -69,7 +73,13 @@ public class UserService{
     }
 
     public void deleteUserById(Long id) {
-        userRepository.deleteById(id);
+        if(userRepository.existsById(id)){
+            userRepository.deleteById(id);
+        }
+        else{
+            throw new IllegalStateException();
+        }
+
     }
 
 

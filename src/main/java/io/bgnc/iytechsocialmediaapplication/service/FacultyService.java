@@ -29,7 +29,8 @@ public class FacultyService {
 
     public void deleteFaculty(Long id){
 
-        facultyRepository.deleteById(id);
+        if(facultyRepository.existsById(id))
+            facultyRepository.deleteById(id);
     }
     public Faculty updateFaculty(String faculty_name) throws IllegalAccessException {
         Faculty faculty = facultyRepository.findByName(faculty_name);
