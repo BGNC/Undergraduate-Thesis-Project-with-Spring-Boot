@@ -29,7 +29,13 @@ public class LecturesController {
     }
 
     @PostMapping("/saveLectures")
-    public Lectures saveLecture(@RequestBody Lectures lectures){
+    public Lectures saveLecture(@RequestBody Lectures lectures) throws IllegalAccessException {
         return lecturesService.saveLecture(lectures);
+    }
+
+    @PutMapping("/updateLectures")
+    public Lectures updateLecture(@RequestBody Lectures lectures){
+        return lecturesService.updateLecture(lectures);
+
     }
 }

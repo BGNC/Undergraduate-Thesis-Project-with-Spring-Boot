@@ -37,8 +37,43 @@ public class LecturesService {
 
     }
 
-    public Lectures saveLectures(Lectures lectures){
+    public Lectures updateLecture(Lectures lectures){
+        Lectures temp = lecturesRepository.findById(lectures.getLectures_id()).get();
+        if(lecturesRepository.existsById(lectures.getLectures_id())){
+            /*
+            * update operation will be doing
+            *  */
+            temp.setLecture_code(lectures.getLecture_code());
+            temp.setLecture_name(lectures.getLecture_name());
+            temp.setDepartments_id(lectures.getDepartments_id());
 
+        }
+        return lecturesRepository.save(temp);
+
+
+
+    }
+    public Lectures saveLecture(Lectures lectures) throws IllegalAccessException {
+
+
+        List<Lectures> allLectures = getAllLectures();
+
+        for (int i = 0 ; i < allLectures.size();i++){
+            if(
+                    allLectures.get(i).getDepartments_id().
+                            equals(departmentRepository.findById(lectures.getDepartments_id().get(i).getDept_id()))
+                    && !(lecturesRepository.existsById(lectures.getLectures_id()))
+                    && allLectures.get(i).getLecture_code().equals(lectures.getLecture_code()))
+            {
+
+
+                throw new IllegalAccessException();
+            }
+
+
+        }
+
+        return lecturesRepository.save(lectures);
 
 
     }
