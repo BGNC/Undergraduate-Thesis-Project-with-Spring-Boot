@@ -20,7 +20,6 @@ public class Post {
     private  Long post_id;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<User> user_id;
     private String post_description;

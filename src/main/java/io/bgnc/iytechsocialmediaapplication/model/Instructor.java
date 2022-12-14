@@ -20,7 +20,7 @@ public class Instructor {
 
     private String instructor_name;
     @Lob
-    private byte[] instructor_photo;
+    private String instructor_photo;
     private String instructor_address;
     private String instructor_mail;
     private String instructor_phone;

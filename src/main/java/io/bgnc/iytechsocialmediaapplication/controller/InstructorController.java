@@ -18,6 +18,11 @@ public class InstructorController {
     private  InstructorService instructorService;
 
 
+    @GetMapping("/findByMail/{instructorMail}")
+    public Instructor searchInstructorByMail(@PathVariable String instructorMail){
+        return instructorService.findByMail(instructorMail);
+
+    }
     @GetMapping("")
     public List<Instructor> getAllInstructor(){
         return instructorService.getAllInstructor();
@@ -32,7 +37,7 @@ public class InstructorController {
     public Instructor addInstructor(@RequestBody Instructor instructor){
         return instructorService.addInstructor(instructor);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("deleteInstructor/{id}")
     public void deleteInstructorById(@PathVariable Long id){
         instructorService.deleteInstructorById(id);
     }

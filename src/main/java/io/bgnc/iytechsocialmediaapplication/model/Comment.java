@@ -19,11 +19,9 @@ public class Comment {
     private Long comment_id;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
     private List<User> user_id;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="post_id")
     private List<Post> post_id;
 
 

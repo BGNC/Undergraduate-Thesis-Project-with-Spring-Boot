@@ -16,13 +16,12 @@ public class InstructorService {
     private InstructorRepository instructorRepository;
 
 
-    public List<Instructor> getAllInstructor(){
 
+    public List<Instructor> getAllInstructor(){
         return instructorRepository.findAll();
     }
     public Instructor addInstructor(Instructor instructor){
         String instructor_mail  =   instructor.getInstructor_mail();
-        String instructor_photo =   String.valueOf(instructor.getInstructor_photo());
 
         List<Instructor> instructorList = getAllInstructor();
         if(instructorList.contains(instructor)){
@@ -34,15 +33,9 @@ public class InstructorService {
                     throw new ArrayStoreException();
                 }
                 else{
-                    if(instructor.getInstructor_photo()..equals("instructorImage/")){
-                        return instructorRepository.save(instructor);
-                    }
-                    else
-                    {
-                        instructor_photo="instructorImage/"+instructor_photo;
-                        instructor.setInstructor_photo(instructor_photo);
-                        return instructorRepository.save(instructor);
-                    }
+
+                    return instructorRepository.save(instructor);
+
                 }
             }
         }
@@ -51,6 +44,9 @@ public class InstructorService {
     }
 
     public Instructor updateInstructor(Instructor instructor){
+
+
+
 
         return null;
 
@@ -61,4 +57,7 @@ public class InstructorService {
         log.info("The instructor who has {} is deleted",id);
     }
 
+    public Instructor findByMail(String instructorMail) {
+        return instructorRepository.findByMail(instructorMail);
+    }
 }

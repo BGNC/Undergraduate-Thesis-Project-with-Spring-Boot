@@ -21,7 +21,7 @@ public class HeadOfCommunityController{
         return headOfCommunityService.getAllHeadOfCommunity();
 
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("deleteHeadOfCommunity/{id}")
     public void deleteHeadOfCommunityById(@PathVariable Long id){
 
         headOfCommunityService.deleteHeadOfCommunityById(id);
@@ -29,6 +29,10 @@ public class HeadOfCommunityController{
     @PostMapping
     public HeadOfCommunity saveHeadOfCommunity(@RequestBody HeadOfCommunity headOfCommunity) throws Exception {
         return headOfCommunityService.saveHeadOfCommunity(headOfCommunity);
+    }
+    @PutMapping("/updateHeadOfCommunity/{headName}&{id}")
+    public HeadOfCommunity updateHeadOfCommunity(@PathVariable String headName, @PathVariable(name = "id") Long id){
+        return headOfCommunityService.updateHeadOfCommunity(headName,id);
     }
 
 

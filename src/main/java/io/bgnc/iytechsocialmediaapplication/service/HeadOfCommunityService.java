@@ -42,5 +42,9 @@ public class HeadOfCommunityService {
     }
 
 
+    public HeadOfCommunity updateHeadOfCommunity(String headName, Long id) {
 
+
+        return null;
+    }
 }
