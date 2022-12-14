@@ -72,6 +72,7 @@ public class DepartmentService {
     }
 
     public List<Departments> getAllDepartments(){
+
         return departmentRepository.findAll();
     }
 
