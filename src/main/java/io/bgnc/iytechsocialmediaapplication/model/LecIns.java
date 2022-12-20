@@ -16,6 +16,6 @@ public class LecIns {
 
     @Id
     private Long lecins_id;
-    @OneToMany
+
 
 }
