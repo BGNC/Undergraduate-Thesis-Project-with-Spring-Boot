@@ -63,6 +63,7 @@ public class DepartmentService {
     }
 
 
+
     public void deleteDepartment(Long dept_id){
 
         if(departmentRepository.existsById(dept_id))
@@ -80,5 +81,52 @@ public class DepartmentService {
     }
 
 
+    public Departments updateDepartment(Long dept_id,Departments departments) throws Exception {
 
+        Departments oldDept = departmentRepository.findById(dept_id).get();
+
+        if(departmentRepository.existsById(oldDept.getDept_id())
+                &&
+                facultyRepository.
+                        existsById
+                        (departmentRepository.
+                                findById(dept_id)
+                                .get()
+                                .getFaculties_id()
+                                .getFaculties_id())){
+
+
+
+            if(facultyRepository.
+                    existsById
+                            (departmentRepository.
+                                    findById
+                                            (departments.getDept_id())
+                                    .get().
+                                    getFaculties_id().
+                                    getFaculties_id())){
+
+
+
+                oldDept.setFaculties_id(departments.getFaculties_id());
+                oldDept.setDept_name(departments.getDept_name());
+                oldDept.setDept_shortname(departments.getDept_shortname());
+
+
+            }
+            else
+                throw new Exception("Faculty Id is error");
+
+
+
+        }
+
+        else
+            throw new RuntimeException("Department is not found with Id : {}"+dept_id);
+
+        return departmentRepository.save(oldDept);
+
+
+
+    }
 }

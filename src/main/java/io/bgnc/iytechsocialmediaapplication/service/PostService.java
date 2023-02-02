@@ -5,23 +5,29 @@ import io.bgnc.iytechsocialmediaapplication.model.User;
 import io.bgnc.iytechsocialmediaapplication.repository.PostRepository;
 import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Service
-@RequiredArgsConstructor
+@Slf4j
+@Transactional
 public class PostService {
 
+    private final PostRepository postRepository;
 
-    @Autowired
-    private PostRepository postRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    public PostService(PostRepository postRepository, UserRepository userRepository) {
+        this.postRepository = postRepository;
+        this.userRepository = userRepository;
+    }
+
+
 
 
 

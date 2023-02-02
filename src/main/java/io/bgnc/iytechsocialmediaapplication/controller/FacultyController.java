@@ -11,8 +11,11 @@ import java.util.List;
 @RequestMapping("/faculties")
 public class FacultyController {
 
-    @Autowired
-    private FacultyService facultyService;
+    private final FacultyService facultyService;
+
+    public FacultyController(FacultyService facultyService) {
+        this.facultyService = facultyService;
+    }
 
 
     @GetMapping("")
@@ -22,9 +25,9 @@ public class FacultyController {
 
     }
 
-    @PutMapping("/updateFaculty")
-    public Faculty updateFaculty( @RequestBody String faculty_name) throws IllegalAccessException {
-        return facultyService.updateFaculty(faculty_name);
+    @PutMapping("/updateFaculty/{faculty_id}")
+    public Faculty updateFaculty( @PathVariable Long faculty_id,@RequestBody Faculty faculty) throws IllegalAccessException {
+        return facultyService.updateFaculty(faculty_id,faculty);
     }
 
     @PostMapping("/saveFaculty")

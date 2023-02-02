@@ -12,9 +12,11 @@ import java.util.List;
 @RequestMapping("/activities")
 public class ActivitiesController {
 
-    @Autowired
-    private ActivitiesService activitiesService;
+    private final ActivitiesService activitiesService;
 
+    public ActivitiesController(ActivitiesService activitiesService) {
+        this.activitiesService = activitiesService;
+    }
 
     @GetMapping()
     public List<Activities> getAllActivity(){
@@ -39,9 +41,6 @@ public class ActivitiesController {
 
     @PutMapping("/updateActivity/{activity_id}")
     public Activities updateActivity(@RequestBody Activities activities,@PathVariable(name = "activity_id") Long activity_id){
-
-
-
 
         return activitiesService.updateActivity(activities,activity_id);
     }

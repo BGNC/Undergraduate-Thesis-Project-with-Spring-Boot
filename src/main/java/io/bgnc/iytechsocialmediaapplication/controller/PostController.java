@@ -7,17 +7,24 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/posts")
 @Slf4j
-@NoArgsConstructor
+@Transactional
 public class PostController {
 
-    @Autowired
-    private PostService postService;
+
+    private final PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
+
+
 
     @PostMapping("/savePost")
     public Post savePost(@RequestBody Post post){

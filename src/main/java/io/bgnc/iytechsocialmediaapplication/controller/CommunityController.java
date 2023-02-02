@@ -1,19 +1,30 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
 import io.bgnc.iytechsocialmediaapplication.model.Community;
-import io.bgnc.iytechsocialmediaapplication.model.HeadOfCommunity;
 import io.bgnc.iytechsocialmediaapplication.service.CommunityService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
+@Transactional
 @RequestMapping("/community")
+@Slf4j
+
 public class CommunityController {
 
-    @Autowired
-    private CommunityService communityService;
+
+    private final CommunityService communityService;
+
+    public CommunityController(CommunityService communityService) {
+        this.communityService = communityService;
+    }
+
+
+
 
 
     @PostMapping("/saveCommunity")

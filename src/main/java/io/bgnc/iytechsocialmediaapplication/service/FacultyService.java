@@ -46,24 +46,15 @@ public class FacultyService {
         }
 
     }
-    public Faculty updateFaculty(String faculty_name) throws IllegalAccessException {
-        Faculty faculty = facultyRepository.findByName(faculty_name);
+    public Faculty updateFaculty(Long faculty_id,Faculty faculty) {
+        Faculty oldFaculty = facultyRepository.findById(faculty_id).get();
 
-        List<Faculty> facultyList = getAllFaculties();
+        if((facultyRepository.existsById(oldFaculty.getFaculties_id()))
+                && !(facultyRepository.findByName(oldFaculty.getFaculty_name()).getFaculty_name().equals(faculty.getFaculty_name()))){
 
-
-        if(facultyList.contains(faculty)){
-            throw new IllegalAccessException();
-        }else{
-            for (int i = 0 ; i < facultyList.size();i++){
-                if(facultyList.get(i).getFaculty_name().equals(faculty_name)){
-                    throw new IllegalAccessException();
-                }
-                else{
-                    faculty.setFaculty_name(faculty_name);
-                }
-            }
+            oldFaculty.setFaculty_name(faculty.getFaculty_name());
         }
+
         return facultyRepository.save(faculty);
     }
 
