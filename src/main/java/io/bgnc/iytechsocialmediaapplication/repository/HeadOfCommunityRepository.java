@@ -12,4 +12,6 @@ public interface HeadOfCommunityRepository extends JpaRepository<HeadOfCommunity
 
     List<HeadOfCommunity> findByHocId(Long id);
 
+
+
 }

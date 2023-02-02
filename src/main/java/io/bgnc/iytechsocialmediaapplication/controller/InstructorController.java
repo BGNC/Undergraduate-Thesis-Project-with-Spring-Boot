@@ -14,9 +14,11 @@ import java.util.List;
 @Slf4j
 public class InstructorController {
 
-    @Autowired
-    private  InstructorService instructorService;
+    private final InstructorService instructorService;
 
+    public InstructorController(InstructorService instructorService) {
+        this.instructorService = instructorService;
+    }
 
     @GetMapping("/findByMail/{instructorMail}")
     public Instructor searchInstructorByMail(@PathVariable String instructorMail){
@@ -28,9 +30,9 @@ public class InstructorController {
         return instructorService.getAllInstructor();
 
     }
-    @PutMapping("/updateInstructor")
-    public Instructor updateInstructor(@RequestBody Instructor instructor){
-        return instructorService.updateInstructor(instructor);
+    @PutMapping("/updateInstructor/{instructor_id}")
+    public Instructor updateInstructor(@RequestBody Instructor instructor,@PathVariable Long instructor_id){
+        return instructorService.updateInstructor(instructor,instructor_id);
 
     }
     @PostMapping(value = "/addInstructor",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})

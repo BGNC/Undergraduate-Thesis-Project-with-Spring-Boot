@@ -2,7 +2,7 @@ package io.bgnc.iytechsocialmediaapplication.controller;
 
 import io.bgnc.iytechsocialmediaapplication.model.Activities;
 import io.bgnc.iytechsocialmediaapplication.service.ActivitiesService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

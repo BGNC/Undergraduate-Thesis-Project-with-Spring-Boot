@@ -43,7 +43,7 @@ public class InstructorService {
         return instructorRepository.save(instructor);
     }
 
-    public Instructor updateInstructor(Instructor instructor){
+    public Instructor updateInstructor(Instructor instructor,Long instructorId){
 
 
 

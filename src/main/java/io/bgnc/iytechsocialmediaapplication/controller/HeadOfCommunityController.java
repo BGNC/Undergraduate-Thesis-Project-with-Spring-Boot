@@ -13,8 +13,14 @@ import java.util.List;
 @Slf4j
 public class HeadOfCommunityController{
 
-    @Autowired
-    private  HeadOfCommunityService headOfCommunityService;
+
+    private final HeadOfCommunityService headOfCommunityService;
+
+    public HeadOfCommunityController(HeadOfCommunityService headOfCommunityService) {
+        this.headOfCommunityService = headOfCommunityService;
+    }
+
+
 
     @GetMapping("/getAllHeadOfCommunity")
     public List<HeadOfCommunity> getAllHeadOfCommunity(){
@@ -29,6 +35,11 @@ public class HeadOfCommunityController{
     @PostMapping
     public HeadOfCommunity saveHeadOfCommunity(@RequestBody HeadOfCommunity headOfCommunity) throws Exception {
         return headOfCommunityService.saveHeadOfCommunity(headOfCommunity);
+    }
+
+    @GetMapping("/{community_id}")
+    public HeadOfCommunity getHeadOfCommunityByCommunityId(@PathVariable Long community_id){
+        return headOfCommunityService.getHeadOfCommunityByCommunityId(community_id);
     }
     @PutMapping("/updateHeadOfCommunity/{headName}&{id}")
     public HeadOfCommunity updateHeadOfCommunity(@PathVariable String headName, @PathVariable(name = "id") Long id){

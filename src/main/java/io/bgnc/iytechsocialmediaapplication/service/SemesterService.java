@@ -5,10 +5,12 @@ import io.bgnc.iytechsocialmediaapplication.repository.SemesterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @Slf4j
+@Transactional
 public class SemesterService {
 
     private final SemesterRepository semesterRepository;

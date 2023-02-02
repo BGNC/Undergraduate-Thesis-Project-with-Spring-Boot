@@ -14,9 +14,9 @@ import java.util.Optional;
 public class ActivitiesService {
 
 
-    private ActivitiesRepository activitiesRepository;
+    private final ActivitiesRepository activitiesRepository;
 
-    private CommunityRepository communityRepository;
+    private final CommunityRepository communityRepository;
 
     public ActivitiesService(ActivitiesRepository activitiesRepository, CommunityRepository communityRepository) {
         this.activitiesRepository = activitiesRepository;
