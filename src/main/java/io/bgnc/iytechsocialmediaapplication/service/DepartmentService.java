@@ -5,8 +5,8 @@ import io.bgnc.iytechsocialmediaapplication.model.Faculty;
 import io.bgnc.iytechsocialmediaapplication.repository.DepartmentRepository;
 import io.bgnc.iytechsocialmediaapplication.repository.FacultyRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -16,10 +16,14 @@ import java.util.List;
 @Transactional
 public class DepartmentService {
 
-    @Autowired
+
     private DepartmentRepository departmentRepository;
-    @Autowired
     private FacultyRepository facultyRepository;
+
+    public DepartmentService(DepartmentRepository departmentRepository, FacultyRepository facultyRepository) {
+        this.departmentRepository = departmentRepository;
+        this.facultyRepository = facultyRepository;
+    }
 
 
     public Departments getDepartmentsByName(String dept_name){
@@ -27,8 +31,8 @@ public class DepartmentService {
         return departmentRepository.findByName(dept_name);
     }
 
-    public Departments getDepartmentsByFaculty(Faculty faculty){
-        return departmentRepository.findByFacultyId(facultyRepository.findById(faculty.getFaculties_id()));
+    public Departments getDepartmentsByFaculty(Long facultyId){
+        return departmentRepository.findByFacultyId(facultyRepository.findById(facultyId));
     }
 
     public Departments saveDepartment(Departments departments) {
@@ -59,17 +63,16 @@ public class DepartmentService {
     }
 
 
-
-
-
-
-
     public void deleteDepartment(Long dept_id){
 
         if(departmentRepository.existsById(dept_id))
-            departmentRepository.deleteById(dept_id);
+            if(facultyRepository.existsById(departmentRepository.findById(dept_id).get().getFaculties_id().getFaculties_id())){
+                departmentRepository.deleteById(dept_id);
+            }
+
 
     }
+
 
     public List<Departments> getAllDepartments(){
 

@@ -2,25 +2,28 @@ package io.bgnc.iytechsocialmediaapplication.controller;
 
 import io.bgnc.iytechsocialmediaapplication.model.Activities;
 import io.bgnc.iytechsocialmediaapplication.service.ActivitiesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/activities")
 public class ActivitiesController {
 
+    @Autowired
     private ActivitiesService activitiesService;
 
 
     @GetMapping()
     public List<Activities> getAllActivity(){
-        return activitiesService.getAll();
+        return activitiesService.getAllActivities();
     }
+
     @GetMapping("{communityId}")
-    public Optional<Activities> getActivityByCommunityId(@PathVariable Long communityId) throws Exception {
-        return activitiesService.getActivityCommunityId(communityId);
+    public Activities getActivityByCommunityId(@PathVariable Long communityId) throws Exception {
+        return activitiesService.getActivityCommunityId(communityId).get();
     }
 
     @PostMapping("/saveActivity")
@@ -36,6 +39,10 @@ public class ActivitiesController {
 
     @PutMapping("/updateActivity/{activity_id}")
     public Activities updateActivity(@RequestBody Activities activities,@PathVariable(name = "activity_id") Long activity_id){
+
+
+
+
         return activitiesService.updateActivity(activities,activity_id);
     }
 

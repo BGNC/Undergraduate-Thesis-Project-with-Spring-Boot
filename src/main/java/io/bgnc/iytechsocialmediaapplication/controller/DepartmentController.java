@@ -29,10 +29,10 @@ public class DepartmentController {
         return departmentService.saveDepartment(departments);
     }
 
-    @GetMapping("/faculty")
-    public Departments getDepartmentsByFaculty(@RequestBody Faculty faculty){
+    @GetMapping("/faculty/{facultyId}")
+    public Departments getDepartmentsByFaculty(@PathVariable Long facultyId){
 
-        return departmentService.getDepartmentsByFaculty(faculty);
+        return departmentService.getDepartmentsByFaculty(facultyId);
 
     }
     @DeleteMapping("/deleteDepartment/{dept_id}")

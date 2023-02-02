@@ -42,6 +42,7 @@ public class PostService {
     public List<Post> getAllPost() {
         return postRepository.findAll();
     }
+
     public Post savePost(Post post){
 
         List<Post> listOfPost = getAllPost();
@@ -70,9 +71,7 @@ public class PostService {
         if(postRepository.existsById(postId)){
             postRepository.deleteById(postId);
         }
-        else{
-            throw new RuntimeException();
-        }
+
     }
 
     public Post updatePost(Long postId,Post post) {
