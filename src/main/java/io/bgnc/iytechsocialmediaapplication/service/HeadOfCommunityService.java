@@ -29,7 +29,7 @@ public class HeadOfCommunityService {
 
     public HeadOfCommunity getHeadOfCommunityByCommunityId(Long community_id){
 
-        return headOfCommunityRepository.findById()
+        return headOfCommunityRepository.findById(community_id).get();
 
 
     }

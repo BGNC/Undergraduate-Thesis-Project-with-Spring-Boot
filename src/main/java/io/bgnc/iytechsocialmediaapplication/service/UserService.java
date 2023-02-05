@@ -2,6 +2,7 @@ package io.bgnc.iytechsocialmediaapplication.service;
 
 import io.bgnc.iytechsocialmediaapplication.exception.UserExistAlreadyException;
 import io.bgnc.iytechsocialmediaapplication.model.User;
+import io.bgnc.iytechsocialmediaapplication.model.UserDet;
 import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,12 @@ public class UserService{
 
 
     public User updateUserById(Long id, String username, String phone, String password,int isActivated) {
+
+
+
+
+
+
         User user = userRepository.findById(id).get();
         List<User> userList = userRepository.findAll();
         if(userList.contains(user)){
@@ -76,6 +83,7 @@ public class UserService{
         // when the user is deleted the post of user will be at the same time .
         if(userRepository.existsById(id)){
             userRepository.deleteById(id);
+
         }
         else{
             throw new IllegalStateException();
