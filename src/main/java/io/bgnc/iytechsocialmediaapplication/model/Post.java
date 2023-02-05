@@ -3,7 +3,7 @@ package io.bgnc.iytechsocialmediaapplication.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -16,7 +16,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private  Long post_id;
 
     @ManyToMany(fetch = FetchType.EAGER)

@@ -25,7 +25,6 @@ public class PostController {
     }
 
 
-
     @PostMapping("/savePost")
     public Post savePost(@RequestBody Post post){
         return postService.savePost(post);
@@ -41,7 +40,7 @@ public class PostController {
         return postService.updatePost(postId,post);
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<Post> getAllPost(){
        return  postService.getAllPost();
     }

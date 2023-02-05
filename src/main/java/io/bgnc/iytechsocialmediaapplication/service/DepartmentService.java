@@ -39,7 +39,7 @@ public class DepartmentService {
         Faculty faculty = departments.getFaculties_id();
 
         List<Departments> getAllDept = getAllDepartments();
-        if(facultyRepository.existsById(faculty.getFaculties_id())){
+        if(!(facultyRepository.existsById(faculty.getFaculties_id()))){
             if(!(departmentRepository.existsById(departments.getDept_id()))){
                 if(!(getAllDept.contains(departments))){
 

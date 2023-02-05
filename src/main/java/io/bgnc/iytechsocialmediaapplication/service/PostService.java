@@ -29,8 +29,6 @@ public class PostService {
 
 
 
-
-
     public List<Post> getPostByUserId(Long userId){
         User user = userRepository.findByUserId(userId);
         List<Post> getAllPost = getAllPost();
@@ -73,6 +71,12 @@ public class PostService {
 
     public void deletePost(Long postId)
     {
+
+        /*
+        * check the user exist or not .
+        *
+        *  */
+
 
         if(postRepository.existsById(postId)){
             postRepository.deleteById(postId);

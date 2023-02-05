@@ -29,6 +29,11 @@ public class LecturesService {
         return lecturesRepository.findAll();
     }
 
+
+    public Lectures findByDepartmentId(Long department_id){
+        return lecturesRepository.findById(departmentRepository.findById(department_id).get().getDept_id()).get();
+
+    }
     public Lectures findByLectureCode(String code){
 
         return lecturesRepository.findByLectureCode(code);

@@ -73,6 +73,7 @@ public class UserService{
     }
 
     public void deleteUserById(Long id) {
+        // when the user is deleted the post of user will be at the same time .
         if(userRepository.existsById(id)){
             userRepository.deleteById(id);
         }

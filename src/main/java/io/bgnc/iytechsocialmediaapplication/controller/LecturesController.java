@@ -24,6 +24,11 @@ public class LecturesController {
     public List<Lectures> getAllLectures(){
         return lecturesService.getAllLectures();
     }
+
+    @GetMapping("/{department_id}")
+    public Lectures findByDepartmentId(@PathVariable Long department_id){
+        return lecturesService.findByDepartmentId(department_id);
+    }
     @GetMapping("/{lecture_code}")
     public Lectures findByLectureCode(@PathVariable String lecture_code){
         return lecturesService.findByLectureCode(lecture_code);
