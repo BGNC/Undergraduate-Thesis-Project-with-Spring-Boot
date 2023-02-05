@@ -64,25 +64,15 @@ public class LecturesService {
 
 
     }
-    public Lectures saveLecture(Lectures lectures) throws IllegalAccessException {
+    public Lectures saveLecture(Lectures lectures) {
 
 
         List<Lectures> allLectures = getAllLectures();
 
-        for (int i = 0 ; i < allLectures.size();i++){
-            if(
-                    allLectures.get(i).getDepartments_id().
-                            equals(departmentRepository.findById(lectures.getDepartments_id().get(i).getDept_id()))
-                    && !(lecturesRepository.existsById(lectures.getLectures_id()))
-                    && allLectures.get(i).getLecture_code().equals(lectures.getLecture_code()))
-            {
-
-
-                throw new IllegalAccessException();
-            }
-
-
+        if((allLectures.contains(lectures))){
+            log.warn("The lecture is contained {}"+lectures.getLecture_name());
         }
+
 
         return lecturesRepository.save(lectures);
 

@@ -11,10 +11,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/lectures")
 public class LecturesController {
-    @Autowired
-    private LecturesService lecturesService;
 
-    @GetMapping("")
+
+    private final LecturesService lecturesService;
+
+    public LecturesController(LecturesService lecturesService) {
+        this.lecturesService = lecturesService;
+    }
+
+
+    @GetMapping("/")
     public List<Lectures> getAllLectures(){
         return lecturesService.getAllLectures();
     }
@@ -29,7 +35,7 @@ public class LecturesController {
     }
 
     @PostMapping("/saveLectures")
-    public Lectures saveLecture(@RequestBody Lectures lectures) throws IllegalAccessException {
+    public Lectures saveLecture(@RequestBody Lectures lectures)  {
         return lecturesService.saveLecture(lectures);
     }
 
