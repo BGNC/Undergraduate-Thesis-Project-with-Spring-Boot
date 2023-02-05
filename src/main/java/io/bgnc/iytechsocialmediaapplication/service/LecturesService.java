@@ -4,7 +4,7 @@ import io.bgnc.iytechsocialmediaapplication.model.Lectures;
 import io.bgnc.iytechsocialmediaapplication.repository.DepartmentRepository;
 import io.bgnc.iytechsocialmediaapplication.repository.LecturesRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,10 +15,15 @@ import java.util.List;
 @Transactional
 public class LecturesService {
 
-    @Autowired
-    private LecturesRepository lecturesRepository;
-    @Autowired
-    private DepartmentRepository departmentRepository;
+
+    private final LecturesRepository lecturesRepository;
+
+    private final DepartmentRepository departmentRepository;
+
+    public LecturesService(LecturesRepository lecturesRepository, DepartmentRepository departmentRepository) {
+        this.lecturesRepository = lecturesRepository;
+        this.departmentRepository = departmentRepository;
+    }
 
     public List<Lectures> getAllLectures(){
         return lecturesRepository.findAll();
@@ -37,18 +42,24 @@ public class LecturesService {
 
     }
 
-    public Lectures updateLecture(Lectures lectures){
-        Lectures temp = lecturesRepository.findById(lectures.getLectures_id()).get();
-        if(lecturesRepository.existsById(lectures.getLectures_id())){
-            /*
-            * update operation will be doing
-            *  */
-            temp.setLecture_code(lectures.getLecture_code());
-            temp.setLecture_name(lectures.getLecture_name());
-            temp.setDepartments_id(lectures.getDepartments_id());
+    public Lectures updateLecture(Lectures lectures,Long lecture_id){
 
+        Lectures oldLecture = lecturesRepository.findById(lecture_id).get();
+
+        if(lecturesRepository.existsById(oldLecture.getLectures_id())){
+
+            for (int i = 0 ; i < getAllLectures().size();i++){
+                if(departmentRepository.existsById(lectures.getDepartments_id().get(i).getDept_id())){
+                    oldLecture.setLecture_name(lectures.getLecture_name());
+                    oldLecture.setDepartments_id(lectures.getDepartments_id());
+                    oldLecture.setLecture_code(lectures.getLecture_code());
+                }
+
+            }
         }
-        return lecturesRepository.save(temp);
+
+        return lecturesRepository.save(oldLecture);
+
 
 
 

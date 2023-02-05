@@ -33,9 +33,9 @@ public class LecturesController {
         return lecturesService.saveLecture(lectures);
     }
 
-    @PutMapping("/updateLectures")
-    public Lectures updateLecture(@RequestBody Lectures lectures){
-        return lecturesService.updateLecture(lectures);
+    @PutMapping("/updateLectures/{lecture_id}")
+    public Lectures updateLecture(@RequestBody Lectures lectures,@PathVariable Long lecture_id){
+        return lecturesService.updateLecture(lectures,lecture_id);
 
     }
 }
