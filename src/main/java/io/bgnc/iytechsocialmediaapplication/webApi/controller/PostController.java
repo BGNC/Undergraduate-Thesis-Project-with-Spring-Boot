@@ -1,4 +1,4 @@
-package io.bgnc.iytechsocialmediaapplication.controller;
+package io.bgnc.iytechsocialmediaapplication.webApi.controller;
 
 import io.bgnc.iytechsocialmediaapplication.model.concretes.Post;
 import io.bgnc.iytechsocialmediaapplication.service.PostService;

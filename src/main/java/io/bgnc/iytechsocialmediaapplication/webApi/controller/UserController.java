@@ -1,4 +1,4 @@
-package io.bgnc.iytechsocialmediaapplication.controller;
+package io.bgnc.iytechsocialmediaapplication.webApi.controller;
 
 import io.bgnc.iytechsocialmediaapplication.exception.UserExistAlreadyException;
 import io.bgnc.iytechsocialmediaapplication.model.concretes.User;

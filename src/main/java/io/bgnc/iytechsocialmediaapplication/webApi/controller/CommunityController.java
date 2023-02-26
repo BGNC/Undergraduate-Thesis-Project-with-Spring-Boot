@@ -1,4 +1,4 @@
-package io.bgnc.iytechsocialmediaapplication.controller;
+package io.bgnc.iytechsocialmediaapplication.webApi.controller;
 
 import io.bgnc.iytechsocialmediaapplication.model.concretes.Community;
 import io.bgnc.iytechsocialmediaapplication.service.CommunityService;
