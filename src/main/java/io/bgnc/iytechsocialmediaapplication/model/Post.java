@@ -11,21 +11,29 @@ import javax.persistence.*;
 
 import java.util.List;
 
+import static javax.persistence.GenerationType.*;
 
+
+@Table(name="post")
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name="post_id")
     private  Long post_id;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @Column(name="user_id")
     private List<User> user_id;
+    @Column(name="post_description")
     private String post_description;
+    @Column(name="post_photo")
     private String post_photo;
+    @Column(name="is_anonymous")
     private String is_anonymous;
 
 
