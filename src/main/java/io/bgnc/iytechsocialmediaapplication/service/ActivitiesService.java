@@ -1,8 +1,8 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
-import io.bgnc.iytechsocialmediaapplication.model.Activities;
-import io.bgnc.iytechsocialmediaapplication.repository.ActivitiesRepository;
-import io.bgnc.iytechsocialmediaapplication.repository.CommunityRepository;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Activities;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.ActivitiesRepository;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.CommunityRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

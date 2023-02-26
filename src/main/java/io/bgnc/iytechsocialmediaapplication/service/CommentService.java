@@ -1,11 +1,10 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
-import io.bgnc.iytechsocialmediaapplication.model.Comment;
-import io.bgnc.iytechsocialmediaapplication.model.User;
-import io.bgnc.iytechsocialmediaapplication.repository.CommentRepository;
-import io.bgnc.iytechsocialmediaapplication.repository.PostRepository;
-import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Comment;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.User;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.CommentRepository;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.PostRepository;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.UserRepository;
 import org.springframework.stereotype.Service;
 
 

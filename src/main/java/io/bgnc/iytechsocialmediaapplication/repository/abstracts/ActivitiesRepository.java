@@ -1,6 +1,6 @@
-package io.bgnc.iytechsocialmediaapplication.repository;
+package io.bgnc.iytechsocialmediaapplication.repository.abstracts;
 
-import io.bgnc.iytechsocialmediaapplication.model.Activities;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Activities;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ActivitiesRepository extends JpaRepository<Activities,Long> {

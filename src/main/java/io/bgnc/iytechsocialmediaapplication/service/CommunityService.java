@@ -1,9 +1,9 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
-import io.bgnc.iytechsocialmediaapplication.model.Community;
-import io.bgnc.iytechsocialmediaapplication.model.HeadOfCommunity;
-import io.bgnc.iytechsocialmediaapplication.repository.CommunityRepository;
-import io.bgnc.iytechsocialmediaapplication.repository.HeadOfCommunityRepository;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Community;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.HeadOfCommunity;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.CommunityRepository;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.HeadOfCommunityRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;

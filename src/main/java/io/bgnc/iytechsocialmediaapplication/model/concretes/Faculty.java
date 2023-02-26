@@ -1,4 +1,4 @@
-package io.bgnc.iytechsocialmediaapplication.model;
+package io.bgnc.iytechsocialmediaapplication.model.concretes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,18 +8,19 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Data
-@Table(name="semester")
+
 @Entity
+@Table(name="faculty")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Semester {
+public class Faculty {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name="semester_id")
-    private Long semester_id;
-    @Column(name="semester_name")
-    private String semester_name;
+    @Column(name="faculties_id")
+    private Long faculties_id;
+    @Column(name="faculty_name")
+    private String faculty_name;
 
 }

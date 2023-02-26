@@ -1,10 +1,9 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
-import io.bgnc.iytechsocialmediaapplication.model.Post;
-import io.bgnc.iytechsocialmediaapplication.model.User;
-import io.bgnc.iytechsocialmediaapplication.repository.PostRepository;
-import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Post;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.User;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.PostRepository;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

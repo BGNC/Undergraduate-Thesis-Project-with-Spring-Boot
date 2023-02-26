@@ -1,8 +1,7 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.Interest;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Interest;
 import io.bgnc.iytechsocialmediaapplication.service.InterestService;
-import io.bgnc.iytechsocialmediaapplication.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package io.bgnc.iytechsocialmediaapplication.model;
+package io.bgnc.iytechsocialmediaapplication.model.concretes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

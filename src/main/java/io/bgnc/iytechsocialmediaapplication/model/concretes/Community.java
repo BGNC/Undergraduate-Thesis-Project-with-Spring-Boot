@@ -1,9 +1,8 @@
-package io.bgnc.iytechsocialmediaapplication.model;
+package io.bgnc.iytechsocialmediaapplication.model.concretes;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;

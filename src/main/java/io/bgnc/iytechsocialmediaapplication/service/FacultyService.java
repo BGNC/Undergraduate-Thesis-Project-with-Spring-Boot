@@ -1,8 +1,8 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
-import io.bgnc.iytechsocialmediaapplication.model.Faculty;
-import io.bgnc.iytechsocialmediaapplication.repository.DepartmentRepository;
-import io.bgnc.iytechsocialmediaapplication.repository.FacultyRepository;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Faculty;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.DepartmentRepository;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.FacultyRepository;
 
 import org.springframework.stereotype.Service;
 import java.util.List;

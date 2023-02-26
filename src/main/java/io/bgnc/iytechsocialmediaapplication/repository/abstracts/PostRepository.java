@@ -1,6 +1,6 @@
-package io.bgnc.iytechsocialmediaapplication.repository;
+package io.bgnc.iytechsocialmediaapplication.repository.abstracts;
 
-import io.bgnc.iytechsocialmediaapplication.model.Post;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

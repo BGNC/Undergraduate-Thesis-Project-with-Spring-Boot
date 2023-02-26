@@ -1,6 +1,6 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.Community;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Community;
 import io.bgnc.iytechsocialmediaapplication.service.CommunityService;
 import lombok.extern.slf4j.Slf4j;
 

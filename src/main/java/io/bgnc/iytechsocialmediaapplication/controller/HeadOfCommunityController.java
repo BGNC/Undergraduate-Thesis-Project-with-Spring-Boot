@@ -1,9 +1,8 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.HeadOfCommunity;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.HeadOfCommunity;
 import io.bgnc.iytechsocialmediaapplication.service.HeadOfCommunityService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

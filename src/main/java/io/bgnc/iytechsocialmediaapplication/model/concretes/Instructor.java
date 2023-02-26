@@ -1,4 +1,4 @@
-package io.bgnc.iytechsocialmediaapplication.model;
+package io.bgnc.iytechsocialmediaapplication.model.concretes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,10 +40,20 @@ public class Instructor {
     private String instructor_phone;
     @Column(name="instructor_website")
     private String instructor_website;
+    @Column(name="instructor_scopus")
     private String instructor_scopus;
+    @Column(name="instructor_scholar_google")
     private String instructor_scholar_google;
+    @Column(name="instructor_research_gate")
     private String instructor_research_gate;
+    @Column(name="instructor_linkedin")
     private String instructor_linkedin;
+
+
+    /**
+     * SOME INSTRUCTOR PART-TIME OR PHD STUDENT OR MSC STUDENT
+     * */
+    @Column(name="instructor_is_student")
     private String instructor_is_student;
 
 

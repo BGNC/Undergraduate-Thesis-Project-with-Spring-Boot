@@ -1,15 +1,12 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.Post;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Post;
 import io.bgnc.iytechsocialmediaapplication.service.PostService;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/posts")

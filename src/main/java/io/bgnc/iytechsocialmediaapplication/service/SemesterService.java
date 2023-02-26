@@ -1,7 +1,7 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
-import io.bgnc.iytechsocialmediaapplication.model.Semester;
-import io.bgnc.iytechsocialmediaapplication.repository.SemesterRepository;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Semester;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.SemesterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

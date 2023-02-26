@@ -1,14 +1,12 @@
 package io.bgnc.iytechsocialmediaapplication.service;
 
 import io.bgnc.iytechsocialmediaapplication.exception.UserExistAlreadyException;
-import io.bgnc.iytechsocialmediaapplication.model.User;
-import io.bgnc.iytechsocialmediaapplication.model.UserDet;
-import io.bgnc.iytechsocialmediaapplication.repository.UserRepository;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.User;
+import io.bgnc.iytechsocialmediaapplication.repository.abstracts.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.io.IOException;
 import java.util.List;
 
 

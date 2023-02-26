@@ -1,9 +1,8 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.Instructor;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Instructor;
 import io.bgnc.iytechsocialmediaapplication.service.InstructorService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

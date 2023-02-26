@@ -1,6 +1,6 @@
-package io.bgnc.iytechsocialmediaapplication.repository;
+package io.bgnc.iytechsocialmediaapplication.repository.abstracts;
 
-import io.bgnc.iytechsocialmediaapplication.model.Semester;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Semester;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

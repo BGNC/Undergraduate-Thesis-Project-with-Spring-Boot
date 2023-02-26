@@ -1,7 +1,7 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
 import io.bgnc.iytechsocialmediaapplication.exception.UserExistAlreadyException;
-import io.bgnc.iytechsocialmediaapplication.model.User;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.User;
 import io.bgnc.iytechsocialmediaapplication.service.UserService;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

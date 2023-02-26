@@ -1,6 +1,6 @@
-package io.bgnc.iytechsocialmediaapplication.repository;
+package io.bgnc.iytechsocialmediaapplication.repository.abstracts;
 
-import io.bgnc.iytechsocialmediaapplication.model.Instructor;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Instructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InstructorRepository extends JpaRepository<Instructor,Long> {

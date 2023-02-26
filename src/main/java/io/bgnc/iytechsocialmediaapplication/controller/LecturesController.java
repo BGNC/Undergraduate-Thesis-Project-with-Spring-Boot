@@ -1,9 +1,7 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.Lectures;
-import io.bgnc.iytechsocialmediaapplication.repository.LecturesRepository;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Lectures;
 import io.bgnc.iytechsocialmediaapplication.service.LecturesService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

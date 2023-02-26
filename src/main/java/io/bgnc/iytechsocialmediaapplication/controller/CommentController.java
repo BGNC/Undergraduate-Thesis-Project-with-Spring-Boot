@@ -1,11 +1,8 @@
 package io.bgnc.iytechsocialmediaapplication.controller;
 
-import io.bgnc.iytechsocialmediaapplication.model.Comment;
-import io.bgnc.iytechsocialmediaapplication.model.User;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.Comment;
+import io.bgnc.iytechsocialmediaapplication.model.concretes.User;
 import io.bgnc.iytechsocialmediaapplication.service.CommentService;
-import io.bgnc.iytechsocialmediaapplication.service.PostService;
-import io.bgnc.iytechsocialmediaapplication.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;

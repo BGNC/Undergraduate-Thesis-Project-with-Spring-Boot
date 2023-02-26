@@ -1,11 +1,8 @@
-package io.bgnc.iytechsocialmediaapplication.model;
+package io.bgnc.iytechsocialmediaapplication.model.concretes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
