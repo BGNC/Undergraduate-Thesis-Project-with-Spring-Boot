@@ -1,5 +1,6 @@
 package io.bgnc.iytechsocialmediaapplication.webApi.controller;
 
+import io.bgnc.iytechsocialmediaapplication.exception.FacultyNotFoundException;
 import io.bgnc.iytechsocialmediaapplication.model.concretes.Faculty;
 import io.bgnc.iytechsocialmediaapplication.service.abstracts.FacultyService;
 import io.bgnc.iytechsocialmediaapplication.service.concretes.FacultyServiceImpl;
@@ -21,7 +22,7 @@ public class FacultyController {
 
 
     @GetMapping("{id}")
-    public GetByFacultyIdResponse getById(@PathVariable Long id){
+    public GetByFacultyIdResponse getById(@PathVariable Long id) throws FacultyNotFoundException {
         return facultyService.getById(id);
 
     }

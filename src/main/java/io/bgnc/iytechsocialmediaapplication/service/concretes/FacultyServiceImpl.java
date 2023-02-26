@@ -1,6 +1,7 @@
 package io.bgnc.iytechsocialmediaapplication.service.concretes;
 
 import io.bgnc.iytechsocialmediaapplication.core.mappers.abstracts.ModelMapperService;
+import io.bgnc.iytechsocialmediaapplication.exception.FacultyNotFoundException;
 import io.bgnc.iytechsocialmediaapplication.model.concretes.Faculty;
 import io.bgnc.iytechsocialmediaapplication.repository.abstracts.FacultyRepository;
 
@@ -50,8 +51,8 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
     @Override
-    public GetByFacultyIdResponse getById(Long id) {
-        Faculty faculty = this.facultyRepository.findById(id).orElseThrow();
+    public GetByFacultyIdResponse getById(Long id) throws FacultyNotFoundException {
+        Faculty faculty = this.facultyRepository.findById(id).orElseThrow(()->  new FacultyNotFoundException("The faculty is not found . "));
         return this.modelMapperService.forResponse().map(faculty,GetByFacultyIdResponse.class);
     }
 
